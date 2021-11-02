@@ -1,0 +1,13 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "BarcodeRecevierDemo"
+include ':app'
+include ':barcode-receiver-api'
+include ':barcode-receiver-rxjava'
+include ':barcode-receiver-android'
