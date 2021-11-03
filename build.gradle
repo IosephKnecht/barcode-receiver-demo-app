@@ -4,12 +4,32 @@ buildscript {
         google()
         mavenCentral()
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+}
+
+def publishingProperties = new Properties()
+publishingProperties.load(new FileInputStream(rootProject.file("publishing.properties")))
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = 'github'
+            url uri("https://maven.pkg.github.com/IosephKnecht/barcode-receiver-demo-app")
+
+            credentials {
+                it.username = publishingProperties['gpr.username']
+                it.password = publishingProperties['gpr.api_key']
+            }
+        }
     }
 }
 
