@@ -1,0 +1,29 @@
+apply plugin: 'maven-publish'
+
+def publishingProperties = new Properties()
+publishingProperties.load(new FileInputStream(rootProject.file("publishing.properties")))
+
+publishing {
+    repositories {
+        maven {
+            def ownerName = publishingProperties['gpr.username']
+            def repositoryName = publishingProperties['gpr.repository_name']
+            def key = publishingProperties['gpr.api_key']
+
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/$ownerName/$repositoryName")
+            credentials {
+                username = ownerName
+                password = key
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            groupId publishingProperties['gpr.group_id']
+            artifactId publishingProperties['gpr.rxjava_artifact_id']
+            version publishingProperties['gpr.rxjava_library_version']
+            from(components.java)
+        }
+    }
+}

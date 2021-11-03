@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_waiting_barcode">Ожидаю штрих - кода.</string>
+    <string name="app_barcode_received_successfully">Штрих - код успешно получен.</string>
+    <string name="app_barcodes_received_successfully">Штрих - коды успещно получены.</string>
+</resources>

@@ -11,3 +11,4 @@ gradle/
 .externalNativeBuild
 .cxx
 local.properties
+publishing.properties

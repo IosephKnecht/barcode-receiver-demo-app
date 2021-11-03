@@ -36,12 +36,14 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'com.project.iosephknecht:barcode-receiver-rxjava:v1.0.0-alpha01'
+    implementation 'com.project.iosephknecht:barcode-receiver-android:v1.0.0-alpha01'
+
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation project(':barcode-receiver-rxjava')
-    implementation project(':barcode-receiver-android')
     implementation "io.reactivex.rxjava3:rxjava:3.1.2"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation "com.github.skydoves:balloon:1.4.0"

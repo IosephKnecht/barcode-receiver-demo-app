@@ -2,6 +2,11 @@ package com.project.iosephknecht.barcode_receiver_android
 
 import android.os.Build
 
+/**
+ * Utility class for work with devices.
+ *
+ * @author IosephKnecht
+ */
 internal object DeviceUtils {
 
     fun isEmulator(): Boolean {

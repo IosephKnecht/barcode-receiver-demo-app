@@ -10,6 +10,17 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
 
+/**
+ * Implementation [DefaultLifecycleObserver] for listening to events from broadcast receiver
+ * and transmitting barcode to [MutableBarcodeReceiver].
+ *
+ * @param key barcode receiver key.
+ * @param barcodeReceiver implementation of [MutableBarcodeReceiver].
+ * @param activity
+ * @param subscribeStrategy
+ *
+ * @author IosephKnecht
+ */
 internal class BarcodeReceiverLifecycleObserver(
     private val key: String,
     private val barcodeReceiver: MutableBarcodeReceiver,
@@ -30,7 +41,7 @@ internal class BarcodeReceiverLifecycleObserver(
 
     override fun onResume(owner: LifecycleOwner) {
         if (!subscribeStrategy.check()) {
-            Log.i("BarcodeReceiverLifecycleObserver", "broadcast receiver not register")
+            Log.i("BarcodeReceiver", "broadcast receiver not register")
             return
         }
 

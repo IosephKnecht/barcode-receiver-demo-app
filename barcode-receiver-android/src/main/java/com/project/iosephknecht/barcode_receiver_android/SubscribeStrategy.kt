@@ -2,41 +2,79 @@
 
 package com.project.iosephknecht.barcode_receiver_android
 
-import com.example.barcode_receiver_android.BuildConfig
+import androidx.annotation.MainThread
+import androidx.annotation.Size
 
-sealed interface SubscribeStrategy {
+/**
+ * Contract for subscribe strategy.
+ *
+ * Strategies are used to understand whether applications need
+ * to be signed to listen for barcode events.
+ *
+ * @author IosephKnecht
+ */
+fun interface SubscribeStrategy {
 
+    @MainThread
     fun check(): Boolean
 }
 
-interface LeafSubscribeStrategy : SubscribeStrategy
-
-interface CompositeSubscribeStrategy : SubscribeStrategy
-
-object DebugSubscribeStrategy : LeafSubscribeStrategy {
-    override fun check(): Boolean = BuildConfig.DEBUG
+/**
+ * Stub - strategy for subscribing always.
+ *
+ * @author IosephKnecht
+ */
+object AlwaysSubscribeStrategy : SubscribeStrategy {
+    override fun check(): Boolean = true
 }
 
-object EmulatorSubscribeStrategy : LeafSubscribeStrategy {
+/**
+ * Strategy for subscribing only if device is an emulator.
+ *
+ * @author IosephKnecht
+ */
+object EmulatorSubscribeStrategy : SubscribeStrategy {
     override fun check(): Boolean = DeviceUtils.isEmulator()
 }
 
+/**
+ * Composite strategy via condition OR.
+ *
+ * @param strategies array of strategies.
+ *
+ * @author IosephKnecht
+ */
 class OrSubscribeStrategy(
-    private val leftStrategy: SubscribeStrategy,
-    private val rightStrategy: SubscribeStrategy
-) : CompositeSubscribeStrategy {
+    @Size(min = 2)
+    private val strategies: Array<SubscribeStrategy>
+) : SubscribeStrategy {
+
+    init {
+        require(strategies.size > 1) { "array of strategies must have at least two strategies." }
+    }
 
     override fun check(): Boolean {
-        return leftStrategy.check() || rightStrategy.check()
+        return strategies.any { subscribeStrategy -> subscribeStrategy.check() }
     }
 }
 
+/**
+ * Composite strategy via condition AND.
+ *
+ * @param strategies array of strategies.
+ *
+ * @author IosephKnecht
+ */
 class AndSubscribeStrategy(
-    private val leftStrategy: SubscribeStrategy,
-    private val rightStrategy: SubscribeStrategy
-) : CompositeSubscribeStrategy {
+    @Size(min = 2)
+    private val strategies: Array<SubscribeStrategy>
+) : SubscribeStrategy {
+
+    init {
+        require(strategies.size > 1) { "array of strategies must have at least two strategies." }
+    }
 
     override fun check(): Boolean {
-        return leftStrategy.check() && rightStrategy.check()
+        return !strategies.any { subscribeStrategy -> !subscribeStrategy.check() }
     }
 }

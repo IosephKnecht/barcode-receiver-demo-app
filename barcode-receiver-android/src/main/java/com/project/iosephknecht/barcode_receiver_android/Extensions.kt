@@ -1,14 +1,24 @@
+@file:Suppress("UNUSED")
+
 package com.project.iosephknecht.barcode_receiver_android
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
 
-@Suppress("UNUSED")
-fun MutableBarcodeReceiver.subscribe(
+/**
+ * Extension - function to connect [MutableBarcodeReceiver] with [androidx.lifecycle.Lifecycle].
+ *
+ * @param key barcode receiver key.
+ * @param activity lifecycle owner.
+ * @param subscribeStrategy by default [AlwaysSubscribeStrategy].
+ *
+ * @author IosephKnecht
+ */
+fun MutableBarcodeReceiver.manageByLifecycle(
     key: String,
     activity: FragmentActivity,
-    subscribeStrategy: SubscribeStrategy = DebugSubscribeStrategy
+    subscribeStrategy: SubscribeStrategy = AlwaysSubscribeStrategy
 ) {
     activity.lifecycle.addObserver(
         BarcodeReceiverLifecycleObserver(
@@ -20,13 +30,21 @@ fun MutableBarcodeReceiver.subscribe(
     )
 }
 
-@Suppress("UNUSED")
-fun MutableBarcodeReceiver.subscribe(
+/**
+ * Extension - function to connect [MutableBarcodeReceiver] with [androidx.lifecycle.Lifecycle].
+ *
+ * @param key barcode receiver key.
+ * @param fragment lifecycle owner.
+ * @param subscribeStrategy by default [AlwaysSubscribeStrategy].
+ *
+ * @author IosephKnecht
+ */
+fun MutableBarcodeReceiver.manageByLifecycle(
     key: String,
     fragment: Fragment,
-    subscribeStrategy: SubscribeStrategy = DebugSubscribeStrategy
+    subscribeStrategy: SubscribeStrategy = AlwaysSubscribeStrategy
 ) {
     val activity = fragment.requireActivity()
 
-    subscribe(key, activity, subscribeStrategy)
+    manageByLifecycle(key, activity, subscribeStrategy)
 }
