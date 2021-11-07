@@ -1,6 +1,10 @@
 package com.project.iosephknecht.barcode_receiver_api
 
-interface MutableBarcodeReceiver : ImmutableBarcodeReceiver {
+import io.reactivex.rxjava3.functions.Consumer
 
-    fun accept(barcode: String)
-}
+/**
+ * Contract hot - observable source.
+ *
+ * @author IosephKnecht
+ */
+interface MutableBarcodeReceiver : ImmutableBarcodeReceiver, Consumer<String>

@@ -1,6 +1,10 @@
 package com.project.iosephknecht.barcode_receiver_api
 
-interface ImmutableBarcodeReceiver {
+import io.reactivex.rxjava3.core.ObservableSource
 
-    fun subscribe(observer: BarcodeReceiverObserver)
-}
+/**
+ * Contract [ObservableSource] for receive barcodes.
+ *
+ * @author IosephKnecht
+ */
+interface ImmutableBarcodeReceiver : ObservableSource<String>

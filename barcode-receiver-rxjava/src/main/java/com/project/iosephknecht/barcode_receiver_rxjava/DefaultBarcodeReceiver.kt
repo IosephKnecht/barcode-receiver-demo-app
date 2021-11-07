@@ -1,9 +1,14 @@
 package com.project.iosephknecht.barcode_receiver_rxjava
 
-import com.project.iosephknecht.barcode_receiver_api.BarcodeReceiverObserver
 import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
+import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.subjects.PublishSubject
 
+/**
+ * Default implementation [MutableBarcodeReceiver].
+ *
+ * @author IosephKnecht
+ */
 internal class DefaultBarcodeReceiver : MutableBarcodeReceiver {
 
     private val subject: PublishSubject<String> = PublishSubject.create()
@@ -12,7 +17,7 @@ internal class DefaultBarcodeReceiver : MutableBarcodeReceiver {
         subject.onNext(barcode)
     }
 
-    override fun subscribe(observer: BarcodeReceiverObserver) {
-        subject.subscribe(DefaultBarcodeReceiverObserver(observer))
+    override fun subscribe(observer: Observer<in String>) {
+        subject.subscribe(observer)
     }
 }
