@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 
 def publishingProperties = new Properties()
-publishingProperties.load(new FileInputStream(rootProject.file("publishing.properties")))
+publishingProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 publishing {
     repositories {

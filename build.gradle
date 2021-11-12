@@ -15,7 +15,7 @@ buildscript {
 }
 
 def publishingProperties = new Properties()
-publishingProperties.load(new FileInputStream(rootProject.file("publishing.properties")))
+publishingProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 allprojects {
     repositories {
@@ -26,7 +26,7 @@ allprojects {
 
             credentials {
                 it.username = 'IosephKnecht'
-                it.password = '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'
+                it.password = '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'
             }
         }
     }
