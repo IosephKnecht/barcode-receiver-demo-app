@@ -1,29 +1,63 @@
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
-def publishingProperties = new Properties()
-publishingProperties.load(new FileInputStream(rootProject.file("local.properties")))
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
 
-publishing {
-    repositories {
-        maven {
-            def ownerName = publishingProperties['gpr.username']
-            def repositoryName = publishingProperties['gpr.repository_name']
-            def key = publishingProperties['gpr.api_key']
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/$ownerName/$repositoryName")
-            credentials {
-                username = ownerName
-                password = key
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId 'io.github.iosephknecht'
+                artifactId 'barcode-receiver-api'
+                version 'v1.0.0-alpha01'
+                from(components.java)
+
+                artifact sourcesJar
+                artifact javadocJar
+
+                pom {
+                    name = 'barcode-receiver-api'
+                    description = 'declaration module for barcode receiver'
+                    url = 'https://github.com/IosephKnecht/barcode-receiver-demo-app'
+
+                    licenses {
+                        license {
+                            name = 'The Unlicense'
+                            url = 'https://github.com/IosephKnecht/barcode-receiver-demo-app/blob/v1.0.0-alpha01_bugfix_github_token/LICENSE'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'IosephKnecht'
+                            name = 'Alexander Mezentsev'
+                            email = 'dadyafedar@gmail.com'
+                        }
+                    }
+
+                    scm {
+                        connection = 'scm:git:github.com/IosephKnecht/barcode-receiver-demo-app.git'
+                        developerConnection = 'scm:git:ssh://github.com/IosephKnecht/barcode-receiver-demo-app.git'
+                        url = 'https://github.com/IosephKnecht/barcode-receiver-demo-app/tree/master'
+                    }
+                }
             }
         }
     }
-    publications {
-        gpr(MavenPublication) {
-            groupId publishingProperties['gpr.group_id']
-            artifactId publishingProperties['gpr.api_artifact_id']
-            version publishingProperties['gpr.api_library_version']
-            from(components.java)
-        }
-    }
+}
+
+signing {
+    sign publishing.publications
 }

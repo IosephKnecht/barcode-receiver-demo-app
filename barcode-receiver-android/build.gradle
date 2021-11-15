@@ -37,7 +37,8 @@ android {
 apply from: "${rootProject.rootDir}/barcode-receiver-android/publishing.gradle"
 
 dependencies {
-    implementation "com.project.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
+    implementation ':barcode-receiver-api'
+//    implementation "com.project.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
 
     api 'androidx.fragment:fragment:1.3.6'
     api "androidx.lifecycle:lifecycle-common-java8:2.4.0"

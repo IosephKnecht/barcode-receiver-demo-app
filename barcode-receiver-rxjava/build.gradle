@@ -11,5 +11,6 @@ java {
 apply from: "${rootProject.rootDir}/barcode-receiver-rxjava/publishing.gradle"
 
 dependencies {
-    api "com.project.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
+    api project(':barcode-receiver-api')
+//    api "io.github.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
 }
