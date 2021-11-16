@@ -19,23 +19,23 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId 'io.github.iosephknecht'
-                artifactId 'barcode-receiver-api'
-                version 'v1.0.0-alpha01'
+                groupId PUBLISH_GROUP_ID
+                artifactId PUBLISH_ARTIFACT_ID
+                version PUBLISH_VERSION
                 from(components.java)
 
                 artifact sourcesJar
                 artifact javadocJar
 
                 pom {
-                    name = 'barcode-receiver-api'
-                    description = 'declaration module for barcode receiver'
+                    name = PUBLISH_ARTIFACT_ID
+                    description = PUBLISH_DESCRIPTION
                     url = 'https://github.com/IosephKnecht/barcode-receiver-demo-app'
 
                     licenses {
                         license {
                             name = 'The Unlicense'
-                            url = 'https://github.com/IosephKnecht/barcode-receiver-demo-app/blob/v1.0.0-alpha01_bugfix_github_token/LICENSE'
+                            url = 'https://github.com/IosephKnecht/barcode-receiver-demo-app/blob/master/LICENSE'
                         }
                     }
 
