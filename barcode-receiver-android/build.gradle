@@ -34,10 +34,17 @@ android {
     }
 }
 
-apply from: "${rootProject.rootDir}/barcode-receiver-android/publishing.gradle"
+ext {
+    PUBLISH_GROUP_ID = 'io.github.iosephknecht'
+    PUBLISH_ARTIFACT_ID = 'barcode-receiver-android'
+    PUBLISH_VERSION = 'v1.0.0-alpha01'
+    PUBLISH_DESCRIPTION = 'implementation of lifecycle observer for bind barcodes receiver with lifecycle'
+}
+
+apply from: "${rootProject.rootDir}/publishing/module-publishing.gradle"
 
 dependencies {
-    implementation ':barcode-receiver-api'
+    implementation project(':barcode-receiver-rxjava')
 //    implementation "com.project.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
 
     api 'androidx.fragment:fragment:1.3.6'

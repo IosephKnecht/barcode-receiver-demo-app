@@ -12,7 +12,7 @@ ext {
     PUBLISH_GROUP_ID = 'io.github.iosephknecht'
     PUBLISH_ARTIFACT_ID = 'barcode-receiver-rxjava'
     PUBLISH_VERSION = 'v1.0.0-alpha01'
-    PUBLISH_DESCRIPTION = 'implementation of barcode receiver'
+    PUBLISH_DESCRIPTION = 'implementation of barcodes receiver'
 }
 
 apply from: "${rootProject.rootDir}/publishing/module-publishing.gradle"
