@@ -1,4 +1,4 @@
-package com.project.iosephknecht.barcode_receiver_demo
+package io.github.iosephknecht.barcode_receiver_demo
 
 import android.util.Log
 import androidx.annotation.IntRange

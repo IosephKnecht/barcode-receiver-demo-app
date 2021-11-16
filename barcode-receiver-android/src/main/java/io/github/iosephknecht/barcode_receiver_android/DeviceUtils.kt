@@ -1,4 +1,4 @@
-package com.project.iosephknecht.barcode_receiver_android
+package io.github.iosephknecht.barcode_receiver_android
 
 import android.os.Build
 

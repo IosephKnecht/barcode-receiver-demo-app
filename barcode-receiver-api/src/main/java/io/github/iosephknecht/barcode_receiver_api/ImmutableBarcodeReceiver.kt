@@ -1,4 +1,4 @@
-package com.project.iosephknecht.barcode_receiver_api
+package io.github.iosephknecht.barcode_receiver_api
 
 import io.reactivex.rxjava3.core.ObservableSource
 

@@ -1,4 +1,4 @@
-package com.project.iosephknecht.barcode_receiver_android
+package io.github.iosephknecht.barcode_receiver_android
 
 import android.app.Activity
 import android.content.BroadcastReceiver
@@ -8,7 +8,7 @@ import android.content.IntentFilter
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
+import io.github.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
 
 /**
  * Implementation [DefaultLifecycleObserver] for listening to events from broadcast receiver

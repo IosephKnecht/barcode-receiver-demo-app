@@ -1,8 +1,8 @@
 @file:Suppress("UNUSED")
 
-package com.project.iosephknecht.barcode_receiver_rxjava
+package io.github.iosephknecht.barcode_receiver_rxjava
 
-import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
+import io.github.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
 
 /**
  * Extension - function for get [MutableBarcodeReceiver].

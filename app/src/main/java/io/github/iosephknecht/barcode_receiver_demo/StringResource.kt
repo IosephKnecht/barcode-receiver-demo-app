@@ -1,6 +1,6 @@
 @file:Suppress("UNUSED")
 
-package com.project.iosephknecht.barcode_receiver_demo
+package io.github.iosephknecht.barcode_receiver_demo
 
 import android.content.Context
 import androidx.annotation.StringRes

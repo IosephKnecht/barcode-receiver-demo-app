@@ -1,4 +1,4 @@
-package com.project.iosephknecht.barcode_receiver_demo
+package io.github.iosephknecht.barcode_receiver_demo
 
 import android.os.Bundle
 import android.util.Log
@@ -9,10 +9,10 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
-import com.project.iosephknecht.barcode_receiver_android.manageByLifecycle
-import com.project.iosephknecht.barcode_receiver_api.barcodes
-import com.project.iosephknecht.barcode_receiver_demo.databinding.ActivityMainBinding
-import com.project.iosephknecht.barcode_receiver_rxjava.RxJavaMutableBarcodeReceiver
+import io.github.iosephknecht.barcode_receiver_android.manageByLifecycle
+import io.github.iosephknecht.barcode_receiver_api.barcodes
+import io.github.iosephknecht.barcode_receiver_demo.databinding.ActivityMainBinding
+import io.github.iosephknecht.barcode_receiver_rxjava.RxJavaMutableBarcodeReceiver
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -89,6 +89,6 @@ internal class MainActivity : AppCompatActivity() {
         /**
          * APP_KEY for receive barcodes, used of constant in [android.content.IntentFilter].
          */
-        const val BARCODE_INTENT_FILTER_KEY = "com.project.iosephknecht.demo_app"
+        const val BARCODE_INTENT_FILTER_KEY = "io.github.iosephknecht.demo_app"
     }
 }

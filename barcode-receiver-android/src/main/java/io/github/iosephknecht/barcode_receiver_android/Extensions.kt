@@ -1,10 +1,10 @@
 @file:Suppress("UNUSED")
 
-package com.project.iosephknecht.barcode_receiver_android
+package io.github.iosephknecht.barcode_receiver_android
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
+import io.github.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
 
 /**
  * Extension - function to connect [MutableBarcodeReceiver] with [androidx.lifecycle.Lifecycle].

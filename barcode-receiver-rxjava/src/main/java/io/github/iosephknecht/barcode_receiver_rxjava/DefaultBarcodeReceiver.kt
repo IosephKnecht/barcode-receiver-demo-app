@@ -1,6 +1,6 @@
-package com.project.iosephknecht.barcode_receiver_rxjava
+package io.github.iosephknecht.barcode_receiver_rxjava
 
-import com.project.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
+import io.github.iosephknecht.barcode_receiver_api.MutableBarcodeReceiver
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.subjects.PublishSubject
 

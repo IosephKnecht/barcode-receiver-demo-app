@@ -1,6 +1,6 @@
 @file:Suppress("UNUSED")
 
-package com.project.iosephknecht.barcode_receiver_android
+package io.github.iosephknecht.barcode_receiver_android
 
 import androidx.annotation.MainThread
 import androidx.annotation.Size

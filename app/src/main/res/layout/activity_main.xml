@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSurface"
-    tools:context="com.project.iosephknecht.barcode_receiver_demo.MainActivity">
+    tools:context="io.github.iosephknecht.barcode_receiver_demo.MainActivity">
 
     <TextView
         android:id="@+id/title"
