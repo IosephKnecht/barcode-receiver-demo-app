@@ -18,6 +18,5 @@ ext {
 apply from: "${rootProject.rootDir}/publishing/module-publishing.gradle"
 
 dependencies {
-    api project(':barcode-receiver-api')
-//    api "io.github.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
+    api "io.github.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
 }
