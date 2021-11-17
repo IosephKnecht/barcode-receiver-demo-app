@@ -8,8 +8,15 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-apply from: "${rootProject.rootDir}/barcode-receiver-rxjava/publishing.gradle"
+ext {
+    PUBLISH_GROUP_ID = 'io.github.iosephknecht'
+    PUBLISH_ARTIFACT_ID = 'barcode-receiver-rxjava'
+    PUBLISH_VERSION = 'v1.0.0-alpha01'
+    PUBLISH_DESCRIPTION = 'implementation of barcodes receiver'
+}
+
+apply from: "${rootProject.rootDir}/publishing/module-publishing.gradle"
 
 dependencies {
-    api "com.project.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
+    api "io.github.iosephknecht:barcode-receiver-api:v1.0.0-alpha01"
 }

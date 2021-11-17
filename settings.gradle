@@ -1,4 +1,4 @@
-rootProject.name = "BarcodeRecevierDemo"
+rootProject.name = "barcode-receiver-demo-app"
 include ':app'
 include ':barcode-receiver-api'
 include ':barcode-receiver-rxjava'
