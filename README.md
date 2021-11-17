@@ -31,15 +31,7 @@ Add repository to module:
 ```groovy
 repositories {
     maven {
-        url uri("https://maven.pkg.github.com/IosephKnecht/barcode-receiver-demo-app")
-
-        // Unfortunately GithubPackages does not allow downloading artifacts without authorization. 
-        // https://github.community/t/download-from-github-package-registry-without-authentication/14407/133
-        credentials {
-          it.username = 'YOUR_GITHUB_USER_NAME'
-          // Publish token for download library
-          it.password = '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'
-        }
+        mavenCentral()
     }
 }
 ```
